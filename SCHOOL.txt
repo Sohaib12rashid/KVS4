@@ -1,0 +1,126 @@
+NAME  :  Saba Sumbul
+
+CLASS : 10
+
+SECTION : A
+
+ADMITION NO. : 1234
+
+MOBAIL NO. : 07860053263
+
+ADDRESS : Shiv kumari school
+
+===================================================
+
+NAME  :  Sohaib Rashid
+
+CLASS : 12 
+
+SECTION : A
+
+ADMITION NO. : 1234
+
+MOBAIL NO. : 09455593786
+
+ADDRESS : 642/4 Shiv nagar Maswanpur
+
+===================================================
+
+NAME  :  MSR
+
+CLASS : 10
+
+SECTION : b
+
+ADMITION NO. : 1234
+
+MOBAIL NO. : 09455593788
+
+ADDRESS : 642/4 Shiv nagar Maswanpur
+
+===================================================
+
+NAME  :  MSR
+
+CLASS : 1212
+
+SECTION : b
+
+ADMITION NO. : 12344444444444
+
+MOBAIL NO. : 09455593788
+
+ADDRESS : 642/4 Shiv nagar Maswanpur
+
+===================================================
+
+NAME  :  Saba Sumbul
+
+CLASS : 10
+
+SECTION : b
+
+ADMITION NO. : 123456565656565656565656
+
+MOBAIL NO. : 07860053263
+
+ADDRESS : Shiv kumari school
+
+===================================================
+
+NAME  :  nnnnnnnnnnnnnnnnn
+
+CLASS : errrrrrrrrrrrr
+
+SECTION : ererererererererererer
+
+ADMITION NO. : errrrrrrrrrrr
+
+MOBAIL NO. : ererererererererererer
+
+ADDRESS : erererererererer
+
+===================================================
+
+NAME  :  Sohaib Rashid 344444444444444445
+
+CLASS : 12 
+
+SECTION : B
+
+ADMITION NO. : 123456565656565656565656
+
+MOBAIL NO. : 09455593786
+
+ADDRESS : 642/4 Shiv nagar Maswanpur
+
+===================================================
+
+NAME  :  MSR
+
+CLASS : 4
+
+SECTION : r
+
+ADMITION NO. : 234
+
+MOBAIL NO. : 09455593788
+
+ADDRESS : 642/4 Shiv nagar Maswanpur
+
+===================================================
+
+NAME  :  Sohaib Rashid
+
+CLASS : 12 
+
+SECTION : 2222222222222
+
+ADMITION NO. : 222222222222
+
+MOBAIL NO. : 09455593786
+
+ADDRESS : 642/4 Shiv nagar Maswanpur
+
+===================================================
+
