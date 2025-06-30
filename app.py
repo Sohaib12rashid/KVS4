@@ -1,7 +1,27 @@
-from flask import Flask, request, jsonify, render_template, redirect, url_for, session
+from flask import Flask, request, render_template, jsonify
+from flask_sqlalchemy import SQLAlchemy
 import os
+
 app = Flask(__name__)
-app.secret_key = os.environ.get('SECRET_KEY', 'your_secret_key_here')  # Set a strong secret key in production
+
+# Get PostgreSQL URL from environment variable (Render)
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL')
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+db = SQLAlchemy(app)
+
+# Define Student table
+class Student(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(100))
+    class_name = db.Column(db.String(20))
+    section = db.Column(db.String(10))
+    admission = db.Column(db.String(50))
+    mobile = db.Column(db.String(20))
+    address = db.Column(db.String(200))
+
+@app.before_first_request
+def create_tables():
+    db.create_all()
 
 @app.route('/')
 def index():
@@ -10,60 +30,22 @@ def index():
 @app.route('/submit', methods=['POST'])
 def submit():
     data = request.get_json()
-    with open("SCHOOL.txt", 'a') as z:
-        z.write('NAME  :  ' + data['name'] + '\n\n')
-        z.write('CLASS : ' + data['class'] + '\n\n')
-        z.write('SECTION : ' + data['section'] + '\n\n')
-        z.write('ADMITION NO. : ' + data['admission'] + '\n\n')
-        z.write('MOBAIL NO. : ' + data['mobile'] + '\n\n')
-        z.write('ADDRESS : ' + data['address'] + '\n\n')
-        z.write("===================================================\n\n")
-    return jsonify({"message": "Student data saved successfully!"})
-
-@app.route('/admin-login', methods=['GET', 'POST'])
-def admin_login():
-    error = None
-    if request.method == 'POST':
-        username = request.form.get('username')
-        password = request.form.get('password')
-        if username == 'sohaib12' and password == 'adminrashid':
-            session['admin_logged_in'] = True
-            return redirect(url_for('admin_panel'))
-        else:
-            error = 'Invalid username or password.'
-    return render_template('admin_login.html', error=error)
-
-@app.route('/admin')
-def admin_panel():
-    if not session.get('admin_logged_in'):
-        return redirect(url_for('admin_login'))
-    try:
-        with open("SCHOOL.txt", "r") as file:
-            content = file.read()
-    except FileNotFoundError:
-        content = "No data available."
-    return render_template("admin.html", content=content)
-
-@app.route('/clear', methods=['POST'])
-def clear_data():
-    if not session.get('admin_logged_in'):
-        return redirect(url_for('admin_login'))
-    open("SCHOOL.txt", "w").close()
-    return redirect('/admin')
-
-@app.route('/logout')
-def logout():
-    session.pop('admin_logged_in', None)
-    return redirect(url_for('admin_login'))
+    student = Student(
+        name=data['name'],
+        class_name=data['class'],
+        section=data['section'],
+        admission=data['admission'],
+        mobile=data['mobile'],
+        address=data['address']
+    )
+    db.session.add(student)
+    db.session.commit()
+    return jsonify({"message": "Student data saved to database!"})
 
 @app.route('/view')
 def view_data():
-    try:
-        with open("SCHOOL.txt", "r") as file:
-            content = file.read().replace('\n', '<br>')
-        return f"<h2>Saved Student Data</h2><div>{content}</div>"
-    except FileNotFoundError:
-        return "No data found yet."
+    students = Student.query.all()
+    return render_template("view.html", students=students)
 
-if __name__ == "__main__":
-    app.run()
+if __name__ == '__main__':
+    app.run(debug=True)
