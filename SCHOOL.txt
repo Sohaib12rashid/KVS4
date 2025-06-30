@@ -1,28 +1,2 @@
-NAME  :  MSR
 
-CLASS : 12 
-
-SECTION : 2222222222222
-
-ADMITION NO. : 222222222222
-
-MOBAIL NO. : 09455593788
-
-ADDRESS : 642/4 Shiv nagar Maswanpur
-
-===================================================
-
-NAME  :  MSR
-
-CLASS : 0
-
-SECTION : 0
-
-ADMITION NO. : 0
-
-MOBAIL NO. : 09455593788
-
-ADDRESS : 0
-
-===================================================
 
